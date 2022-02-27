@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import Link from 'next/link';
+import {media} from 'styles/media';
 
 function HeaderComponent() {
   const handleSwitchThemeClick = () => {};
@@ -10,7 +11,7 @@ function HeaderComponent() {
         <Grid>
           <div />
           <div>
-            <Link href='/'>
+            <Link href="/">
               <a>Logo</a>
             </Link>
           </div>
@@ -24,14 +25,18 @@ function HeaderComponent() {
 }
 
 const Header = styled.header`
-  height: 5rem;
+  height: ${({theme}) => theme.heights.header};
 
   > div {
     max-width: 1400px;
     width: 100%;
     height: 100%;
-    padding: 0 2rem;
+    padding: 0 ${({theme}) => theme.spaces['x-large']};
     margin: 0 auto;
+
+    ${media.lessThan('tablet')`
+    padding: 0 ${({theme}) => theme.spaces.large};
+    `}
   }
 `;
 
@@ -40,7 +45,7 @@ const Grid = styled.div`
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
   height: 100%;
-  padding: 1rem 0;
+  padding: ${({theme}) => theme.spaces.large} 0;
 
   > div {
     &:nth-child(2) {

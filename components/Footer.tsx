@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { flexColumn } from 'styles/flex';
+import {flexColumn} from 'styles/flex';
 
 function HeaderComponent() {
   return (
@@ -12,12 +12,13 @@ function HeaderComponent() {
 }
 
 const Footer = styled.footer`
-  padding: 2rem 0;
+  height: ${({theme}) => theme.heights.footer};
+  padding: ${({theme}) => theme.spaces['x-large']} 0;
 
   > div {
     ${flexColumn('normal', 'center')}
 
-    padding: 0 2rem;
+    padding: 0 ${({theme}) => theme.spaces['x-large']};
   }
 `;
 
