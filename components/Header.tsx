@@ -26,6 +26,7 @@ function HeaderComponent() {
 
 const Header = styled.header`
   height: ${({theme}) => theme.heights.header};
+  border-bottom: 1px solid ${({theme}) => theme.colors['gray-10']};
 
   > div {
     max-width: 1400px;
