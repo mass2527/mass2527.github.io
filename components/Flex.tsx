@@ -1,23 +1,26 @@
 import {CSSProperties} from 'react';
-import styled from 'styled-components';
+import styled, {CSSProp} from 'styled-components';
 
 interface FlexProps {
-  children: (JSX.Element | null | boolean)[];
+  className?: string;
+  direction?: CSSProperties['flexDirection'];
   spacing?: number;
   justifyContent?: CSSProperties['justifyContent'];
   alignItems?: CSSProperties['alignItems'];
-  direction?: CSSProperties['flexDirection'];
+  children: (JSX.Element | null | boolean)[];
 }
 
 const FlexComponent = ({
-  children,
+  className,
+  direction = 'row',
   spacing,
   justifyContent,
   alignItems = 'center',
-  direction = 'row',
+  children,
 }: FlexProps) => {
   return (
     <Flex
+      className={className}
       spacing={spacing}
       direction={direction}
       justifyContent={justifyContent}
