@@ -10,7 +10,8 @@ const GlobalStyles = createGlobalStyle`
     body{
         font-family: -apple-system,BlinkMacSystemFont,Bazier Square,Noto Sans KR,Segoe UI,Apple SD Gothic Neo,Roboto,Helvetica Neue,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
         color:${({theme}) => theme.colors.primary};
-        line-height:${({theme}) => theme.lineHeights.medium}
+        line-height:${({theme}) => theme.lineHeights.medium};
+        background-color:${({theme}) => theme.colors.wash};
     }
     main{
         min-height:calc(100vh - 160px);

@@ -1,4 +1,4 @@
 import {generateMedia} from 'styled-media-query';
-import {theme} from 'styles';
+import {breakpoints} from 'styles';
 
-export const media = generateMedia(theme.breakpoints);
+export const media = generateMedia(breakpoints);
