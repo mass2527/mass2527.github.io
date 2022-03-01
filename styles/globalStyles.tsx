@@ -15,10 +15,10 @@ const GlobalStyles = createGlobalStyle`
     }
     main{
         min-height:calc(100vh - 160px);
-        padding:0 ${({theme}) => theme.spaces['x-large']};
+        padding:${({theme}) => theme.spaces['x-large']};
 
         ${media.lessThan('tablet')`
-        padding:0 ${({theme}) => theme.spaces.large};
+        padding:${({theme}) => theme.spaces.large};
         `}
     }
     h1{
