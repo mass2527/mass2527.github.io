@@ -48,7 +48,7 @@ const fontSizes = {
   'x-large': '24px',
 };
 
-export const lightThemeColors = {
+const lightThemeColors = {
   primary: '#23272F', // gray-90
   secondary: '#404756', // gray-70
   link: '#087EA4', // blue-50
@@ -60,7 +60,7 @@ export const lightThemeColors = {
   'secondary-button': '#EBECF0', // gray-10
 };
 
-export const darkThemeColors = {
+const darkThemeColors = {
   primary: '#F6F7F9', // gray-5
   secondary: '#EBECF0', // gray-10
   link: '#149ECA', // blue-40
@@ -132,7 +132,7 @@ const colors = {
   'red-5': '#FAF1F0',
 };
 
-export const theme = {
+const commonTheme = {
   breakpoints,
   heights,
   spaces,
@@ -141,4 +141,19 @@ export const theme = {
   fontWeights,
   fontSizes,
   colors,
-} as const;
+};
+
+export const theme = {
+  ...commonTheme,
+  colors: {...commonTheme.colors, ...lightThemeColors, ...darkThemeColors},
+};
+
+export const lightTheme = {
+  ...commonTheme,
+  colors: {...commonTheme.colors, ...lightThemeColors},
+};
+
+export const darkTheme = {
+  ...commonTheme,
+  colors: {...commonTheme.colors, ...darkThemeColors},
+};

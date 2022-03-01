@@ -31,8 +31,9 @@ function Article({articleId}: ArticleProps) {
 }
 
 const Category = styled.span`
-  color: ${({theme}) => theme.colors['green-40']};
+  color: ${({theme}) => theme.colors['purple-40']};
   font-size: ${({theme}) => theme.fontSizes.small};
+  font-weight: ${({theme}) => theme.fontWeights.medium};
   letter-spacing: 3px;
 `;
 

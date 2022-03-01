@@ -1,9 +1,19 @@
 import styled from 'styled-components';
 import Link from 'next/link';
 import {media} from 'styles/media';
+import {useRecoilState} from 'recoil';
+import {themeState} from 'states/theme';
+import {IoMdSunny} from 'react-icons/io';
+import {FaMoon} from 'react-icons/fa';
 
 function HeaderComponent() {
-  const handleSwitchThemeClick = () => {};
+  const [theme, setTheme] = useRecoilState(themeState);
+  const isDarkMode = theme === 'dark';
+
+  const handleSwitchThemeClick = () => {
+    const nextTheme = isDarkMode ? 'light' : 'dark';
+    setTheme(nextTheme);
+  };
 
   return (
     <Header>
@@ -16,7 +26,9 @@ function HeaderComponent() {
             </Link>
           </div>
           <div>
-            <button onClick={handleSwitchThemeClick}>Switch theme</button>
+            <button onClick={handleSwitchThemeClick}>
+              {isDarkMode ? <FaMoon /> : <IoMdSunny />}
+            </button>
           </div>
         </Grid>
       </div>
@@ -54,6 +66,12 @@ const Grid = styled.div`
     }
     &:last-child {
       justify-self: end;
+    }
+
+    svg {
+      width: 18px;
+      height: 18px;
+      color: ${({theme}) => theme.colors.primary};
     }
   }
 `;

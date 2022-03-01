@@ -1,9 +1,4 @@
-import {theme as commonTheme, lightThemeColors, darkThemeColors} from 'styles';
-
-const theme = {
-  ...commonTheme,
-  colors: {...commonTheme.colors, ...lightThemeColors, ...darkThemeColors},
-};
+import {theme} from 'styles';
 
 type Theme = typeof theme;
 

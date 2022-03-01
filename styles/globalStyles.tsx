@@ -38,21 +38,23 @@ const GlobalStyles = createGlobalStyle`
     }
     h4{
         font-size:22px;
-        font-weight: ${({theme}) => theme.fontWeights['regular']};
+        font-weight: ${({theme}) => theme.fontWeights['medium']};
         line-height: ${({theme}) => theme.lineHeights.large};
     }
     h5{
         font-size:20px;
-        font-weight: ${({theme}) => theme.fontWeights['regular']};
+        font-weight: ${({theme}) => theme.fontWeights['medium']};
         line-height: ${({theme}) => theme.lineHeights.large};
     }
     h6{
         font-size:18px;
-        font-weight: ${({theme}) => theme.fontWeights['regular']};
+        font-weight: ${({theme}) => theme.fontWeights['medium']};
         line-height: ${({theme}) => theme.lineHeights.large};
     }
     button{
         cursor:pointer;
+        background-color:transparent;
+        border:none;
     }
     a{
         color:${({theme}) => theme.colors['blue-40']};
