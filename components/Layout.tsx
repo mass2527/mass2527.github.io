@@ -5,7 +5,7 @@ interface LayoutProps {
   children: JSX.Element;
 }
 
-function Layout({ children }: LayoutProps) {
+const Layout = ({children}: LayoutProps) => {
   return (
     <div>
       <Header />
@@ -13,6 +13,6 @@ function Layout({ children }: LayoutProps) {
       <Footer />
     </div>
   );
-}
+};
 
 export default Layout;

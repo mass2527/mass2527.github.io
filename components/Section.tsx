@@ -5,7 +5,7 @@ interface SectionProps {
   children: JSX.Element | JSX.Element[];
 }
 
-function Section({children}: SectionProps) {
+const Section = ({children}: SectionProps) => {
   const level = useContext(LevelContext);
 
   return (
@@ -15,6 +15,6 @@ function Section({children}: SectionProps) {
       </LevelContext.Provider>
     </section>
   );
-}
+};
 
 export default Section;

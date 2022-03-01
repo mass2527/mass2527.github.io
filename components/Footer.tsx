@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import {flexColumn} from 'styles/flex';
 
-function HeaderComponent() {
+const HeaderComponent = () => {
   return (
     <Footer>
       <div>
@@ -9,7 +9,7 @@ function HeaderComponent() {
       </div>
     </Footer>
   );
-}
+};
 
 const Footer = styled.footer`
   height: ${({theme}) => theme.heights.footer};

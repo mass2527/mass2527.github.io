@@ -6,7 +6,7 @@ interface HeadingProps {
   children: string;
 }
 
-function Heading({className, children}: HeadingProps) {
+const Heading = ({className, children}: HeadingProps) => {
   const level = useContext(LevelContext);
 
   switch (level) {
@@ -25,6 +25,6 @@ function Heading({className, children}: HeadingProps) {
     default:
       throw Error('Unknown level: ' + level);
   }
-}
+};
 
 export default Heading;

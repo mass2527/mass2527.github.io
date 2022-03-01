@@ -6,7 +6,7 @@ import {themeState} from 'states/theme';
 import {IoMdSunny} from 'react-icons/io';
 import {FaMoon} from 'react-icons/fa';
 
-function HeaderComponent() {
+const HeaderComponent = () => {
   const [theme, setTheme] = useRecoilState(themeState);
   const isDarkMode = theme === 'dark';
 
@@ -34,7 +34,7 @@ function HeaderComponent() {
       </div>
     </Header>
   );
-}
+};
 
 const Header = styled.header`
   height: ${({theme}) => theme.heights.header};
