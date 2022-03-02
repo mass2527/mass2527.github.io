@@ -11,7 +11,10 @@ import Flex from 'components/Flex';
 interface HomePageProps {
   articles: {
     slug: string;
-    data: {title: string; category: string; date: string; description: string};
+    title: string;
+    category: string;
+    date: Date;
+    description: string;
     content: string;
   }[];
 }
@@ -27,8 +30,8 @@ const HomePage: NextPage<HomePageProps> = ({articles}) => {
 
       <Section>
         <Grid>
-          {articles.map(({slug, data, content}) => (
-            <Link href={`/article/${slug}`} key={slug}>
+          {articles.map((article) => (
+            <Link href={`/article/${article.slug}`} key={article.slug}>
               <Anchor>
                 <article>
                   <Flex
@@ -37,17 +40,17 @@ const HomePage: NextPage<HomePageProps> = ({articles}) => {
                       margin-bottom: ${({theme}) => theme.spaces.large};
                     `}
                   >
-                    <Category>{data.category}</Category>
-                    <Date>{data.date}</Date>
+                    <Category>{article.category}</Category>
+                    <Date>{article.date}</Date>
                   </Flex>
                   <Heading
                     css={css`
                       margin-bottom: ${({theme}) => theme.spaces.small};
                     `}
                   >
-                    {data.title}
+                    {article.title}
                   </Heading>
-                  <Description>{data.description}</Description>
+                  <Description>{article.description}</Description>
                 </article>
               </Anchor>
             </Link>
@@ -58,8 +61,14 @@ const HomePage: NextPage<HomePageProps> = ({articles}) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async (context) => {
-  const articles = getAllArticles();
+export const getStaticProps: GetStaticProps = async () => {
+  const articles = getAllArticles([
+    'title',
+    'date',
+    'slug',
+    'category',
+    'description',
+  ]);
 
   return {
     props: {articles},
