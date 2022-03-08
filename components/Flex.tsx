@@ -1,5 +1,5 @@
-import {CSSProperties} from 'react';
-import styled, {CSSProp} from 'styled-components';
+import {CSSProperties, ReactNode} from 'react';
+import styled from 'styled-components';
 
 interface FlexProps {
   className?: string;
@@ -7,7 +7,7 @@ interface FlexProps {
   spacing?: number;
   justifyContent?: CSSProperties['justifyContent'];
   alignItems?: CSSProperties['alignItems'];
-  children: (JSX.Element | null | boolean)[];
+  children: ReactNode[];
 }
 
 const FlexComponent = ({

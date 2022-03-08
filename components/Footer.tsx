@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import {flexColumn} from 'styles/flex';
 
-const HeaderComponent = () => {
+const FooterComponent = () => {
   return (
     <Footer>
       <div>
@@ -23,4 +23,4 @@ const Footer = styled.footer`
   }
 `;
 
-export default HeaderComponent;
+export default FooterComponent;

@@ -7,6 +7,7 @@ import Link from 'next/link';
 import {getAllArticles} from 'lib/data';
 import Heading from 'components/Heading';
 import Flex from 'components/Flex';
+import dayjs from 'dayjs';
 
 interface HomePageProps {
   articles: {
@@ -41,7 +42,7 @@ const HomePage: NextPage<HomePageProps> = ({articles}) => {
                     `}
                   >
                     <Category>{article.category}</Category>
-                    <Date>{article.date}</Date>
+                    <Date>{dayjs(article.date).format('YYYY. MM. DD')}</Date>
                   </Flex>
                   <Heading
                     css={css`

@@ -1,7 +1,7 @@
 import fs from 'fs';
 import matter from 'gray-matter';
 
-const articlesDirectory = 'pages/article';
+const articlesDirectory = 'articles';
 
 export const getArticleSlugs = () => fs.readdirSync(articlesDirectory);
 
