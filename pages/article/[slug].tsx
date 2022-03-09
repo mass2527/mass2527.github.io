@@ -4,6 +4,9 @@ import {ParsedUrlQuery} from 'querystring';
 import {getAllArticles, getArticleBySlug} from 'lib/data';
 import {GetStaticPaths, GetStaticProps, NextPage} from 'next';
 import dayjs from 'dayjs';
+import styled from 'styled-components';
+import ResponsiveIFrame from 'components/ResponsiveIFrame';
+import Head from 'next/head';
 
 const ArticlePage: NextPage<{
   mdxSource: MDXRemoteSerializeResult;
@@ -16,14 +19,55 @@ const ArticlePage: NextPage<{
   };
 }> = ({mdxSource, frontMatter}) => {
   return (
-    <div>
-      {/* Head  */}
-      <h1>{frontMatter.title}</h1>
-      <time>{dayjs(frontMatter.date).format('YYYY. MM. DD')}</time>
-      <MDXRemote {...mdxSource} />
-    </div>
+    <Wrapper>
+      <Head>
+        <title>{frontMatter.title}</title>
+        <meta name="description" content={frontMatter.description} />
+      </Head>
+      <Article>
+        <h1>{frontMatter.title}</h1>
+        <Date>{dayjs(frontMatter.date).format('YYYY. MM. DD')}</Date>
+        <MDXRemote {...mdxSource} components={{ResponsiveIFrame}} />
+      </Article>
+    </Wrapper>
   );
 };
+
+const Wrapper = styled.div`
+  display: grid;
+  place-items: center;
+`;
+
+const Article = styled.article`
+  max-width: 800px;
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-bottom: ${({theme}) => theme.spaces['x-large']};
+  }
+  p {
+    margin: ${({theme}) => theme.spaces.medium} 0;
+    font-size: ${({theme}) => theme.fontSizes.large};
+  }
+  blockquote {
+    font-style: italic;
+    border-radius: ${({theme}) => theme.radiuses.medium};
+    padding: ${({theme}) => theme.spaces['x-large']};
+    margin-bottom: ${({theme}) => theme.spaces['x-large']};
+    background-color: ${({theme}) => theme.colors.card};
+  }
+  code {
+    font-weight: ${({theme}) => theme.fontWeights['semi-bold']};
+    font-size: ${({theme}) => theme.fontSizes.small};
+  }
+`;
+
+const Date = styled.time`
+  color: ${({theme}) => theme.colors['gray-40']};
+`;
 
 interface Params extends ParsedUrlQuery {
   slug: string;

@@ -4,8 +4,6 @@ export default function Document() {
   return (
     <Html>
       <Head>
-        {/* https://cdnjs.com/libraries/prism */}
-        {/* https://prismjs.com/index.html */}
         <link
           rel="stylesheet"
           href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/night-owl.min.css"
@@ -13,7 +11,7 @@ export default function Document() {
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
 
         <script src="//cdn.jsdelivr.net/gh/TRSasasusu/highlightjs-highlight-lines.js@1.1.5/highlightjs-highlight-lines.min.js"></script>
-        <script>hljs.initHighlightingOnLoad();</script>
+        <script>hljs.highlightAll();</script>
       </Head>
       <body>
         <Main />
