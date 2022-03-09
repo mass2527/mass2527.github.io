@@ -56,17 +56,15 @@ const GlobalStyles = createGlobalStyle`
         cursor:pointer;
     }
 
-
+    /* syntax highlighting  */
     pre{
         background-color: #eff0f1;
         padding: 16px;
-        border-radius: 4px;
         overflow: auto;
         font-size: 13px;
         margin-bottom: 4.1rem;
         padding: 3.7rem 0 1.6rem .4rem;
         border-radius: 12px;
-        overflow: hidden;
         background-image: url(https://ik.imagekit.io/garbagevalue/garbage/window-buttons_gt8xoXxWn.png);
         background-repeat: no-repeat;
         background-size: 44px 10px;

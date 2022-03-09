@@ -1,11 +1,17 @@
 import styled from 'styled-components';
-import {flexColumn} from 'styles/flex';
+import {flexRow} from 'styles/flex';
 
 const FooterComponent = () => {
   return (
     <Footer>
       <div>
-        <p>This is footer</p>
+        <p>
+          © 2022. Built with <a href="https://nextjs.org">Nextjs</a>. Deployed
+          with <a href="https://vercel.com">Vercel</a>. Github
+        </p>
+        <p>
+          <a href="https://github.com/mass2527">Github</a>
+        </p>
       </div>
     </Footer>
   );
@@ -17,7 +23,7 @@ const Footer = styled.footer`
   border-top: 1px solid ${({theme}) => theme.colors['gray-10']};
 
   > div {
-    ${flexColumn('normal', 'center')}
+    ${flexRow('space-between', 'center')}
 
     padding: 0 ${({theme}) => theme.spaces['x-large']};
   }
