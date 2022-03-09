@@ -7,7 +7,7 @@ const FooterComponent = () => {
       <div>
         <p>
           © 2022. Built with <a href="https://nextjs.org">Nextjs</a>. Deployed
-          with <a href="https://vercel.com">Vercel</a>. Github
+          with <a href="https://vercel.com">Vercel</a>.
         </p>
         <p>
           <a href="https://github.com/mass2527">Github</a>
