@@ -15,11 +15,7 @@ const GlobalStyles = createGlobalStyle`
     }
     main{
         min-height:calc(100vh - 160px);
-        padding:${({theme}) => theme.spaces['x-large']};
-
-        ${media.lessThan('tablet')`
-        padding:${({theme}) => theme.spaces.large};
-        `}
+        padding:${({theme}) => theme.spaces['x-large']} 10vw;
     }
     h1{
         font-size:48px;
