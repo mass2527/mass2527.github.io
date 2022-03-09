@@ -22,7 +22,7 @@ const HeaderComponent = () => {
           <div />
           <div>
             <Link href="/">
-              <a>Logo</a>
+              <a>kim.dongho</a>
             </Link>
           </div>
           <div>

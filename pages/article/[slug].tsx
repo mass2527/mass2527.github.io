@@ -7,6 +7,11 @@ import dayjs from 'dayjs';
 import styled from 'styled-components';
 import ResponsiveIFrame from 'components/ResponsiveIFrame';
 import Head from 'next/head';
+import {useEffect} from 'react';
+import Prism from 'prismjs';
+import 'prismjs/components/prism-jsx';
+import 'prismjs/components/prism-typescript';
+import 'prismjs/components/prism-tsx';
 
 const ArticlePage: NextPage<{
   mdxSource: MDXRemoteSerializeResult;
@@ -18,6 +23,12 @@ const ArticlePage: NextPage<{
     title: string;
   };
 }> = ({mdxSource, frontMatter}) => {
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      Prism.highlightAll();
+    }
+  }, []);
+
   return (
     <Wrapper>
       <Head>
@@ -51,17 +62,17 @@ const Article = styled.article`
   p {
     margin: ${({theme}) => theme.spaces.medium} 0;
     font-size: ${({theme}) => theme.fontSizes.large};
+
+    code {
+      font-weight: ${({theme}) => theme.fontWeights['semi-bold']};
+      font-size: ${({theme}) => theme.fontSizes.small};
+    }
   }
   blockquote {
-    font-style: italic;
     border-radius: ${({theme}) => theme.radiuses.medium};
     padding: ${({theme}) => theme.spaces['x-large']};
     margin-bottom: ${({theme}) => theme.spaces['x-large']};
     background-color: ${({theme}) => theme.colors.card};
-  }
-  code {
-    font-weight: ${({theme}) => theme.fontWeights['semi-bold']};
-    font-size: ${({theme}) => theme.fontSizes.small};
   }
 `;
 
