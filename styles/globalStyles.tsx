@@ -1,5 +1,6 @@
 import {createGlobalStyle} from 'styled-components';
 import reset from 'styled-reset';
+import {media} from './media';
 
 const GlobalStyles = createGlobalStyle`
     ${reset};
@@ -14,7 +15,6 @@ const GlobalStyles = createGlobalStyle`
     }
     main{
         min-height:calc(100vh - 160px);
-        padding:${({theme}) => theme.spaces['x-large']} 10vw;
     }
     h1{
         font-size:48px;
@@ -52,8 +52,12 @@ const GlobalStyles = createGlobalStyle`
         border:none;
     }
     a{
-        color:${({theme}) => theme.colors['blue-40']};
+        color:${({theme}) => theme.colors.link};
         cursor:pointer;
+        text-decoration:none;
+    }
+    small{
+        font-size: ${({theme}) => theme.fontSizes.small};
     }
 
     /* syntax highlighting  */
@@ -69,6 +73,11 @@ const GlobalStyles = createGlobalStyle`
         background-repeat: no-repeat;
         background-size: 44px 10px;
         background-position: 16px 14px;
+
+        ${media.lessThan('tablet')`
+            width:100vw;
+            border-radius:0;
+        `}
     }
     pre[class*="language-"],
     code[class*="language-"] {

@@ -4,29 +4,26 @@ import {flexRow} from 'styles/flex';
 const FooterComponent = () => {
   return (
     <Footer>
-      <div>
-        <p>
-          © 2022. Built with <a href="https://nextjs.org">Nextjs</a>. Deployed
-          with <a href="https://vercel.com">Vercel</a>.
-        </p>
-        <p>
-          <a href="https://github.com/mass2527">Github</a>
-        </p>
-      </div>
+      <small>
+        <span>
+          Built with <a href="https://nextjs.org">Nextjs</a>.
+        </span>{' '}
+        <span>
+          Deployed with <a href="https://vercel.com">Vercel</a>.
+        </span>
+      </small>
+      <small>
+        <a href="https://github.com/mass2527">Github</a>
+      </small>
     </Footer>
   );
 };
 
 const Footer = styled.footer`
+  ${flexRow('space-between', 'center')};
   height: ${({theme}) => theme.heights.footer};
-  padding: ${({theme}) => theme.spaces['x-large']} 0;
   border-top: 1px solid ${({theme}) => theme.colors['gray-10']};
-
-  > div {
-    ${flexRow('space-between', 'center')}
-
-    padding: 0 ${({theme}) => theme.spaces['x-large']};
-  }
+  padding: 0 ${({theme}) => theme.spaces['x-large']};
 `;
 
 export default FooterComponent;

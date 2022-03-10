@@ -5,6 +5,8 @@ import {useRecoilState} from 'recoil';
 import {themeState} from 'states/theme';
 import {IoMdSunny} from 'react-icons/io';
 import {FaMoon} from 'react-icons/fa';
+import logo from 'assets/logo.png';
+import Image from 'next/image';
 
 const HeaderComponent = () => {
   const [theme, setTheme] = useRecoilState(themeState);
@@ -22,7 +24,9 @@ const HeaderComponent = () => {
           <div />
           <div>
             <Link href="/">
-              <a>kim.dongho</a>
+              <StyledLink>
+                <Image width="50" height="60" src={logo} />
+              </StyledLink>
             </Link>
           </div>
           <div>
@@ -54,26 +58,32 @@ const Header = styled.header`
 `;
 
 const Grid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
   align-items: center;
   height: 100%;
-  padding: ${({theme}) => theme.spaces.large} 0;
 
   > div {
+    flex: 1;
+    height: 100%;
     &:nth-child(2) {
-      justify-self: center;
+      display: grid;
+      place-items: center;
     }
     &:last-child {
-      justify-self: end;
+      display: flex;
+      justify-content: flex-end;
     }
 
     svg {
-      width: 18px;
-      height: 18px;
+      width: 20px;
+      height: 20px;
       color: ${({theme}) => theme.colors.primary};
     }
   }
+`;
+
+const StyledLink = styled.a`
+  height: 60px;
 `;
 
 export default HeaderComponent;

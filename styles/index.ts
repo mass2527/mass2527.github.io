@@ -51,7 +51,7 @@ const fontSizes = {
 const lightThemeColors = {
   primary: '#23272F', // gray-90
   secondary: '#404756', // gray-70
-  link: '#087EA4', // blue-50
+  link: '#1E47F2',
   syntax: '#EBECF0', // gray-10
   wash: '#FFFFFF',
   card: '#F6F7F9', // gray-05
@@ -63,7 +63,7 @@ const lightThemeColors = {
 const darkThemeColors = {
   primary: '#F6F7F9', // gray-5
   secondary: '#EBECF0', // gray-10
-  link: '#149ECA', // blue-40
+  link: '#4899EF',
   syntax: '#EBECF0', // gray-10
   wash: '#23272F', // gray-90
   card: '#343A46', // gray-80
