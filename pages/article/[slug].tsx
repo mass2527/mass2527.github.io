@@ -12,6 +12,7 @@ import Prism from 'prismjs';
 import 'prismjs/components/prism-jsx';
 import 'prismjs/components/prism-typescript';
 import 'prismjs/components/prism-tsx';
+import {media} from 'styles/media';
 
 const ArticlePage: NextPage<{
   mdxSource: MDXRemoteSerializeResult;
@@ -47,6 +48,12 @@ const ArticlePage: NextPage<{
 const Wrapper = styled.div`
   display: grid;
   place-items: center;
+  padding: ${({theme}) =>
+    `${theme.spaces['2x-large']} ${theme.spaces['x-large']}`};
+
+  ${media.lessThan('tablet')`
+  padding: ${({theme}) => `${theme.spaces['x-large']} ${theme.spaces.medium}`};
+  `}
 `;
 
 const Article = styled.article`

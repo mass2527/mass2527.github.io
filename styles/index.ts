@@ -14,6 +14,7 @@ const spaces = {
   medium: '16px',
   large: '24px',
   'x-large': '32px',
+  '2x-large': '64px',
 };
 
 const radiuses = {

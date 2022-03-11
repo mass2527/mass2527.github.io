@@ -59,6 +59,9 @@ const GlobalStyles = createGlobalStyle`
     small{
         font-size: ${({theme}) => theme.fontSizes.small};
     }
+    b{
+        font-weight: ${({theme}) => theme.fontWeights.bold};
+    }
 
     /* syntax highlighting  */
     pre{
@@ -68,15 +71,14 @@ const GlobalStyles = createGlobalStyle`
         font-size: 13px;
         margin-bottom: 4.1rem;
         padding: 3.7rem 0 1.6rem .4rem;
-        border-radius: 12px;
+        border-radius: ${({theme}) => theme.radiuses.medium};
         background-image: url(https://ik.imagekit.io/garbagevalue/garbage/window-buttons_gt8xoXxWn.png);
         background-repeat: no-repeat;
         background-size: 44px 10px;
         background-position: 16px 14px;
 
         ${media.lessThan('tablet')`
-            width:100vw;
-            border-radius:0;
+            width: calc(100vw - 32px);
         `}
     }
     pre[class*="language-"],

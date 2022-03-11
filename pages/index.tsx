@@ -22,7 +22,7 @@ interface HomePageProps {
 
 const HomePage: NextPage<HomePageProps> = ({articles}) => {
   return (
-    <div>
+    <Wrapper>
       <Head>
         <title>kim.dongho</title>
         <meta
@@ -61,7 +61,7 @@ const HomePage: NextPage<HomePageProps> = ({articles}) => {
           ))}
         </Grid>
       </Section>
-    </div>
+    </Wrapper>
   );
 };
 
@@ -79,10 +79,19 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
+const Wrapper = styled.div`
+  padding: ${({theme}) =>
+    `${theme.spaces['2x-large']} ${theme.spaces['x-large']}`};
+
+  ${media.lessThan('tablet')`
+  padding: ${({theme}) => `${theme.spaces['x-large']} ${theme.spaces.medium}`};
+  `}
+`;
+
 const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 64px;
+  gap: ${({theme}) => theme.spaces['2x-large']};
 
   ${media.lessThan('desktop')`
   grid-template-columns: repeat(2, 1fr);
