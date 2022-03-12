@@ -68,11 +68,15 @@ const Article = styled.article`
   }
   p {
     margin: ${({theme}) => theme.spaces.medium} 0;
-    font-size: ${({theme}) => theme.fontSizes.large};
+    font-size: ${({theme}) => theme.fontSizes.medium};
+    color: ${({theme}) => theme.colors.secondary};
 
     code {
-      font-weight: ${({theme}) => theme.fontWeights['semi-bold']};
+      background-color: ${({theme}) => theme.colors['code-background']};
+      border-radius: ${({theme}) => theme.radiuses.small};
+      padding: ${({theme}) => theme.spaces['x-small']};
       font-size: ${({theme}) => theme.fontSizes.small};
+      color: ${({theme}) => theme.colors.secondary};
     }
   }
   blockquote {

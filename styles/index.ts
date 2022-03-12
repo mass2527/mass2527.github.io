@@ -52,25 +52,27 @@ const fontSizes = {
 const lightThemeColors = {
   primary: '#23272F', // gray-90
   secondary: '#404756', // gray-70
-  link: '#1E47F2',
+  link: '#087EA4', // blue-50
   syntax: '#EBECF0', // gray-10
   wash: '#FFFFFF',
   card: '#F6F7F9', // gray-05
   highlight: '#E6F7FF', // blue-10
   border: '#EBECF0', // gray-10
   'secondary-button': '#EBECF0', // gray-10
+  'code-background': '#f5f5f7',
 };
 
 const darkThemeColors = {
   primary: '#F6F7F9', // gray-5
   secondary: '#EBECF0', // gray-10
-  link: '#4899EF',
+  link: '#149ECA', // blue-40
   syntax: '#EBECF0', // gray-10
   wash: '#23272F', // gray-90
   card: '#343A46', // gray-80
   highlight: 'rgba(88,175,223,.1)',
   border: '#343A46', // gray-80
   'secondary-button': '#404756', // gray-70
+  'code-background': '#2f333c',
 };
 
 const colors = {
