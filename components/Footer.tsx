@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import {flexRow} from 'styles/flex';
 
 const FooterComponent = () => {

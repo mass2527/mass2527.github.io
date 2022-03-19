@@ -1,18 +1,22 @@
-import {serialize} from 'next-mdx-remote/serialize';
-import {MDXRemote, MDXRemoteSerializeResult} from 'next-mdx-remote';
-import {ParsedUrlQuery} from 'querystring';
-import {getAllArticles, getArticleBySlug} from 'lib/data';
-import {GetStaticPaths, GetStaticProps, NextPage} from 'next';
 import dayjs from 'dayjs';
+import {MDXRemote, MDXRemoteSerializeResult} from 'next-mdx-remote';
+import {serialize} from 'next-mdx-remote/serialize';
+import Prism from 'prismjs';
+import {ParsedUrlQuery} from 'querystring';
 import styled from 'styled-components';
-import ResponsiveIFrame from 'components/ResponsiveIFrame';
+
+import type {GetStaticPaths, GetStaticProps, NextPage} from 'next';
 import Head from 'next/head';
 import {useEffect} from 'react';
-import Prism from 'prismjs';
+
+import {getAllArticles, getArticleBySlug} from 'lib/data';
+
+import {media} from 'styles/media';
+import ResponsiveIFrame from 'components/ResponsiveIFrame';
+
 import 'prismjs/components/prism-jsx';
 import 'prismjs/components/prism-typescript';
 import 'prismjs/components/prism-tsx';
-import {media} from 'styles/media';
 
 const ArticlePage: NextPage<{
   mdxSource: MDXRemoteSerializeResult;

@@ -1,4 +1,5 @@
 import {useContext} from 'react';
+
 import {LevelContext} from 'contexts/level';
 
 interface HeadingProps {

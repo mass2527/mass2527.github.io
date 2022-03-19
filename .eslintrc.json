@@ -1,3 +1,45 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": "next/core-web-vitals",
+  "plugins": ["simple-import-sort"],
+  "rules": {
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error"
+  },
+  "overrides": [
+    {
+      "files": ["**/*.ts", "**/*.tsx"],
+      "rules": {
+        "simple-import-sort/imports": [
+          "error",
+          {
+            "groups": [
+              // external libraries
+              ["^[a-z]"],
+
+              // next type, next and react
+              ["^next\\u0000$", "^next$", "^next/", "^react$"],
+
+              // lib
+              ["^lib"],
+
+              // states, contexts
+              ["^states", "^contexts"],
+
+              // assets, styles and components
+              ["^assets", "^styles", "^components"],
+
+              // Parent imports.
+              ["^\\.\\.(?!/?$)", "^\\.\\./?$"],
+
+              // Other relative imports.
+              ["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"],
+
+              // Side effect imports
+              ["^\\u0000"]
+            ]
+          }
+        ]
+      }
+    }
+  ]
 }

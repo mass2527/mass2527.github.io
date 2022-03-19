@@ -1,10 +1,13 @@
-import styled from 'styled-components';
-import Link from 'next/link';
-import {media} from 'styles/media';
-import {useRecoilState} from 'recoil';
-import {themeState} from 'states/theme';
-import {IoMdSunny} from 'react-icons/io';
 import {FaMoon} from 'react-icons/fa';
+import {IoMdSunny} from 'react-icons/io';
+import {useRecoilState} from 'recoil';
+import styled from 'styled-components';
+
+import Link from 'next/link';
+
+import {themeState} from 'states/theme';
+
+import {media} from 'styles/media';
 
 const HeaderComponent = () => {
   const [theme, setTheme] = useRecoilState(themeState);

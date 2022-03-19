@@ -1,5 +1,6 @@
-import {CSSProperties, ReactNode} from 'react';
 import styled from 'styled-components';
+
+import {CSSProperties, ReactNode} from 'react';
 
 interface FlexProps {
   className?: string;

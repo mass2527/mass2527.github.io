@@ -1,10 +1,13 @@
-import type {AppProps} from 'next/app';
-import Layout from 'components/Layout';
-import GlobalStyles from 'styles/globalStyles';
-import {ThemeProvider} from 'styled-components';
 import {RecoilRoot, useRecoilValue} from 'recoil';
-import {lightTheme, darkTheme} from 'styles';
+import {ThemeProvider} from 'styled-components';
+
+import type {AppProps} from 'next/app';
+
 import {themeState} from 'states/theme';
+
+import {darkTheme,lightTheme} from 'styles';
+import GlobalStyles from 'styles/globalStyles';
+import Layout from 'components/Layout';
 
 function MyApp({Component, pageProps}: AppProps) {
   const theme = useRecoilValue(themeState);

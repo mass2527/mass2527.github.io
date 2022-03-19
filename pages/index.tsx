@@ -1,13 +1,16 @@
+import dayjs from 'dayjs';
+import styled, {css} from 'styled-components';
+
 import type {GetStaticProps, NextPage} from 'next';
 import Head from 'next/head';
-import Section from 'components/Section';
-import styled, {css} from 'styled-components';
-import {media} from 'styles/media';
 import Link from 'next/link';
+
 import {getAllArticles} from 'lib/data';
-import Heading from 'components/Heading';
+
+import {media} from 'styles/media';
 import Flex from 'components/Flex';
-import dayjs from 'dayjs';
+import Heading from 'components/Heading';
+import Section from 'components/Section';
 
 interface HomePageProps {
   articles: {

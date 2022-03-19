@@ -1,5 +1,6 @@
-import {LevelContext} from 'contexts/level';
 import {useContext} from 'react';
+
+import {LevelContext} from 'contexts/level';
 
 interface SectionProps {
   children: JSX.Element | JSX.Element[];
