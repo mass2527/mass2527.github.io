@@ -31,6 +31,7 @@ const ArticlePage: NextPage<{
     };
   };
 }> = ({mdxSource, frontMatter}) => {
+  console.log(frontMatter);
   useEffect(() => {
     if (typeof window !== 'undefined') {
       Prism.highlightAll();
@@ -49,6 +50,7 @@ const ArticlePage: NextPage<{
         />
 
         {/* OPEN GRAPH */}
+        <meta property="fb:app_id" content="703328420682578" />
         <meta property="og:type" key="og:type" content="website" />
         <meta
           property="og:url"
