@@ -1,5 +1,6 @@
-import Document, {DocumentContext, DocumentInitialProps} from 'next/document';
 import {ServerStyleSheet} from 'styled-components';
+
+import Document, {DocumentContext, DocumentInitialProps} from 'next/document';
 
 export default class MyDocument extends Document {
   static async getInitialProps(

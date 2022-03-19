@@ -3,6 +3,7 @@ import styled, {css} from 'styled-components';
 
 import type {GetStaticProps, NextPage} from 'next';
 import Head from 'next/head';
+import Image from 'next/image';
 import Link from 'next/link';
 
 import {getAllArticles} from 'lib/data';
@@ -20,15 +21,31 @@ interface HomePageProps {
     date: Date;
     description: string;
     content: string;
+    coverImage: string;
   }[];
 }
+
+const unsplashImageLoader = ({
+  src,
+  width,
+  quality,
+}: {
+  src: string;
+  width: number;
+  quality?: number;
+}) => {
+  return `https://images.unsplash.com/${src}&auto=format&fit=crop&w=${width}&q=${
+    quality || 75
+  }`;
+};
 
 const HomePage: NextPage<HomePageProps> = ({articles}) => {
   return (
     <Wrapper>
       <Head>
-        <title>kim.dongho</title>
+        <title key="title">kim.dongho</title>
         <meta
+          key="description"
           name="description"
           content="Frontend Engineer 김동호입니다. 그때그때 흥미를 느끼는 컨셉에 대해 공유하거나 나만 알기 아까운 해외 시니어 개발자들의 글을 번역해서 제공합니다."
         />
@@ -38,23 +55,34 @@ const HomePage: NextPage<HomePageProps> = ({articles}) => {
       <Section>
         <Grid>
           {articles.map((article) => (
-            <Link href={`/article/${article.slug}`} key={article.slug}>
+            <Link key={article.slug} href={`/article/${article.slug}`} passHref>
               <Anchor>
                 <article>
+                  <Image
+                    loader={unsplashImageLoader}
+                    src={article.coverImage}
+                    width="100%"
+                    height="64%"
+                    layout="responsive"
+                    objectFit="cover"
+                    priority
+                    alt=""
+                  />
+
                   <Flex
                     justifyContent="space-between"
                     css={css`
                       margin-bottom: ${({theme}) => theme.spaces.large};
-                    `}
-                  >
+                    `}>
                     <Category>{article.category}</Category>
-                    <Date>{dayjs(article.date).format('YYYY. MM. DD')}</Date>
+                    <Date dateTime={article.date.toString()}>
+                      {dayjs(article.date).format('YYYY. MM. DD')}
+                    </Date>
                   </Flex>
                   <Heading
                     css={css`
                       margin-bottom: ${({theme}) => theme.spaces.small};
-                    `}
-                  >
+                    `}>
                     {article.title}
                   </Heading>
                   <Description>{article.description}</Description>
@@ -75,6 +103,7 @@ export const getStaticProps: GetStaticProps = async () => {
     'slug',
     'category',
     'description',
+    'coverImage',
   ]);
 
   return {
@@ -102,6 +131,10 @@ const Grid = styled.div`
   ${media.lessThan('tablet')`
   grid-template-columns: repeat(1, 1fr);
   `}
+
+  img {
+    border-radius: ${({theme}) => theme.radiuses.medium};
+  }
 `;
 
 const Anchor = styled.a`

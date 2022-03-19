@@ -26,6 +26,9 @@ const ArticlePage: NextPage<{
     description: string;
     slug: string;
     title: string;
+    ogImage: {
+      url: string;
+    };
   };
 }> = ({mdxSource, frontMatter}) => {
   useEffect(() => {
@@ -37,8 +40,60 @@ const ArticlePage: NextPage<{
   return (
     <Wrapper>
       <Head>
-        <title>{frontMatter.title}</title>
-        <meta name="description" content={frontMatter.description} />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title key="title">{frontMatter.title}</title>
+        <meta
+          key="description"
+          name="description"
+          content={frontMatter.description}
+        />
+
+        {/* OPEN GRAPH */}
+        <meta property="og:type" key="og:type" content="website" />
+        <meta
+          property="og:url"
+          key="og:url"
+          content={`https://nextjs-blog-gray.vercel.app/article/${frontMatter.slug}`}
+        />
+        <meta property="og:title" content={frontMatter.title} key="og:title" />
+        <meta
+          property="og:description"
+          key="og:description"
+          content={frontMatter.description}
+        />
+        <meta
+          property="og:image"
+          key="og:image"
+          content={`https://images.unsplash.com/${frontMatter.ogImage.url}`}
+        />
+
+        {/* TWITTER */}
+        <meta
+          name="twitter:card"
+          key="twitter:card"
+          content="summary_large_image"
+        />
+        <meta name="twitter:site" key="twitter:site" content="kim.dongho" />
+        <meta
+          name="twitter:creator"
+          key="twitter:creator"
+          content="kim.dongho"
+        />
+        <meta
+          name="twitter:title"
+          key="twitter:title"
+          content={frontMatter.title}
+        />
+        <meta
+          name="twitter:description"
+          key="twitter:description"
+          content={frontMatter.description}
+        />
+        <meta
+          name="twitter:image"
+          key="twitter:image"
+          content={frontMatter.ogImage.url}
+        />
       </Head>
       <Article>
         <h1>{frontMatter.title}</h1>
@@ -108,6 +163,7 @@ export const getStaticProps: GetStaticProps<{}, Params> = async ({params}) => {
     'date',
     'description',
     'content',
+    'ogImage',
   ]);
   const {content, ...frontMatter} = article;
   const mdxSource = await serialize(content);
