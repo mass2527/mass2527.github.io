@@ -64,7 +64,7 @@ const ArticlePage: NextPage<{
         <meta
           property="og:image"
           key="og:image"
-          content={`https://images.unsplash.com/${frontMatter.ogImage.url}`}
+          content={frontMatter.ogImage.url}
         />
 
         {/* TWITTER */}
