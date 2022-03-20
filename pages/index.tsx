@@ -12,6 +12,7 @@ import {media} from 'styles/media';
 import Flex from 'components/Flex';
 import Heading from 'components/Heading';
 import Section from 'components/Section';
+import Seo from 'components/Seo';
 
 interface HomePageProps {
   articles: {
@@ -42,15 +43,9 @@ const unsplashImageLoader = ({
 const HomePage: NextPage<HomePageProps> = ({articles}) => {
   return (
     <Wrapper>
-      <Head>
-        <title key="title">kim.dongho</title>
-        <meta
-          key="description"
-          name="description"
-          content="Frontend Engineer 김동호입니다. 그때그때 흥미를 느끼는 컨셉에 대해 공유하거나 나만 알기 아까운 해외 시니어 개발자들의 글을 번역해서 제공합니다."
-        />
+      <Seo title="김동호 개발 블로그">
         <link rel="icon" href="/favicon.ico" />
-      </Head>
+      </Seo>
 
       <Section>
         <Grid>
