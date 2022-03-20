@@ -43,7 +43,7 @@ const unsplashImageLoader = ({
 const HomePage: NextPage<HomePageProps> = ({articles}) => {
   return (
     <Wrapper>
-      <Seo title="김동호 개발 블로그">
+      <Seo title="김동호 | 기술 블로그">
         <link rel="icon" href="/favicon.ico" />
       </Seo>
 
@@ -107,8 +107,7 @@ export const getStaticProps: GetStaticProps = async () => {
 };
 
 const Wrapper = styled.div`
-  padding: ${({theme}) =>
-    `${theme.spaces['2x-large']} ${theme.spaces['x-large']}`};
+  padding: ${({theme}) => `${theme.spaces['2x-large']}`};
 
   ${media.lessThan('tablet')`
   padding: ${({theme}) => `${theme.spaces['x-large']} ${theme.spaces.medium}`};
@@ -135,6 +134,11 @@ const Grid = styled.div`
 const Anchor = styled.a`
   text-decoration: none;
   color: ${({theme}) => theme.colors.primary};
+  transition: transform 0.2s ease-in-out;
+
+  &:hover {
+    transform: scale(0.98);
+  }
 `;
 
 const Category = styled.span`

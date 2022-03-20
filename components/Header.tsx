@@ -22,14 +22,17 @@ const HeaderComponent = () => {
     <Header>
       <div>
         <Grid>
-          <div />
           <div>
-            <Link href="/">
-              <a>
-                <b>kim.dongho</b>
-              </a>
+            <Link href="/" passHref>
+              <StyledLink>
+                <span>
+                  <b>KIM:DONGHO</b> tech blog
+                </span>
+              </StyledLink>
             </Link>
           </div>
+          <div />
+
           <div>
             <button onClick={handleSwitchThemeClick}>
               {isDarkMode ? <FaMoon /> : <IoMdSunny />}
@@ -46,10 +49,9 @@ const Header = styled.header`
   border-bottom: 1px solid ${({theme}) => theme.colors['gray-10']};
 
   > div {
-    max-width: 1400px;
     width: 100%;
     height: 100%;
-    padding: 0 ${({theme}) => theme.spaces['x-large']};
+    padding: 0 ${({theme}) => theme.spaces['2x-large']};
     margin: 0 auto;
 
     ${media.lessThan('tablet')`
@@ -66,9 +68,9 @@ const Grid = styled.div`
   > div {
     flex: 1;
     height: 100%;
-    &:nth-child(2) {
-      display: grid;
-      place-items: center;
+    &:nth-child(1) {
+      display: flex;
+      align-items: center;
     }
     &:last-child {
       display: flex;
@@ -81,6 +83,12 @@ const Grid = styled.div`
       color: ${({theme}) => theme.colors.primary};
     }
   }
+`;
+
+const StyledLink = styled.a`
+  color: ${({theme}) => theme.colors.primary};
+  font-size: ${({theme}) => theme.fontSizes.large};
+  word-break: inherit;
 `;
 
 export default HeaderComponent;
