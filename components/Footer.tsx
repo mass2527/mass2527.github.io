@@ -6,12 +6,7 @@ const FooterComponent = () => {
   return (
     <Footer>
       <small>
-        <span>
-          Built with <a href="https://nextjs.org">Nextjs</a>.
-        </span>{' '}
-        <span>
-          Deployed with <a href="https://vercel.com">Vercel</a>.
-        </span>
+        <a href="https://www.linkedin.com/in/dh-kim-733227200">LinkedIn</a>
       </small>
       <small>
         <a href="https://github.com/mass2527">Github</a>
