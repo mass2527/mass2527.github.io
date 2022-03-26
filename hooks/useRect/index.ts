@@ -1,9 +1,9 @@
 import {RefObject, useEffect, useRef, useState} from 'react';
-import observeRect from './observeRect';
+import {observeRect} from './observeRect';
 
 export const useRect = <T extends Element = HTMLElement>(
   nodeRef: RefObject<T | null>,
-  options: UseRectOptions
+  options: UseRectOptions = {}
 ) => {
   const [rect, setRect] = useState<DOMRect | null>(null);
   const [element, setElement] = useState(nodeRef.current);
@@ -26,7 +26,9 @@ export const useRect = <T extends Element = HTMLElement>(
   }, [element]);
 
   useEffect(() => {
-    if (!options.observe) return;
+    if (!options.observe) {
+      return;
+    }
 
     let ele = element;
 
@@ -57,7 +59,7 @@ export const useRect = <T extends Element = HTMLElement>(
   return rect;
 };
 
-type UseRectOptions = {
+export interface UseRectOptions {
   observe?: boolean;
   onChange?: (rect: DOMRect) => void;
-};
+}

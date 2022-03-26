@@ -34,10 +34,7 @@ const run = () => {
   requestAnimationFrameId = window.requestAnimationFrame(run);
 };
 
-export default function observeRect(
-  node: Element,
-  callback: (rect: DOMRect) => void
-) {
+export function observeRect(node: Element, callback: (rect: DOMRect) => void) {
   return {
     observe() {
       let wasEmpty = observedNodes.size === 0;
@@ -50,26 +47,34 @@ export default function observeRect(
         });
       }
 
-      if (wasEmpty) run();
+      if (wasEmpty) {
+        run();
+      }
     },
     unobserve() {
       const state = observedNodes.get(node);
       if (state) {
         // Remove the callback
         const index = state.callbacks.indexOf(callback);
-        if (index >= 0) state.callbacks.splice(index, 1);
+        if (index >= 0) {
+          state.callbacks.splice(index, 1);
+        }
 
         // Remove the node reference
-        if (!state.callbacks.length) observedNodes.delete(node);
+        if (!state.callbacks.length) {
+          observedNodes.delete(node);
+        }
 
         // Stop the loop
-        if (!observedNodes.size) cancelAnimationFrame(requestAnimationFrameId);
+        if (!observedNodes.size) {
+          cancelAnimationFrame(requestAnimationFrameId);
+        }
       }
     },
   };
 }
 
-export type RectProps = {
+export interface RectProps {
   rect: DOMRect | undefined;
   callbacks: Function[];
-};
+}
