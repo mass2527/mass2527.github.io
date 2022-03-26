@@ -16,8 +16,8 @@
               // external libraries
               ["^[a-z]"],
 
-              // next type, next and react
-              ["^next\\u0000$", "^next$", "^next/", "^react$"],
+              // next type, next, react-dom and react
+              ["^next\\u0000$", "^next$", "^next/", "^react-dom$", "^react$"],
 
               // lib
               ["^lib"],

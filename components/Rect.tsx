@@ -1,6 +1,7 @@
+import {useRect, UseRectOptions} from 'hooks/useRect';
+
 import {ReactNode, RefObject} from 'react';
 import {useRef} from 'react';
-import {useRect, UseRectOptions} from 'hooks/useRect';
 
 interface RectProps {
   options: UseRectOptions;

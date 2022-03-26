@@ -1,6 +1,13 @@
 import {ServerStyleSheet} from 'styled-components';
 
-import Document, {DocumentContext, DocumentInitialProps} from 'next/document';
+import Document, {
+  DocumentContext,
+  DocumentInitialProps,
+  Head,
+  Html,
+  Main,
+  NextScript,
+} from 'next/document';
 
 export default class MyDocument extends Document {
   static async getInitialProps(
@@ -29,5 +36,18 @@ export default class MyDocument extends Document {
     } finally {
       sheet.seal();
     }
+  }
+
+  render() {
+    return (
+      <Html>
+        <Head />
+        <body>
+          <Main />
+          <NextScript />
+          <div id="portal" />
+        </body>
+      </Html>
+    );
   }
 }
