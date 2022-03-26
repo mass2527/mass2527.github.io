@@ -6,10 +6,20 @@ const FooterComponent = () => {
   return (
     <Footer>
       <small>
-        <a href="https://www.linkedin.com/in/dh-kim-733227200">LinkedIn</a>
+        <a
+          href="https://www.linkedin.com/in/dh-kim-733227200"
+          target="_blank"
+          rel="noopener noreferrer">
+          Linkedin
+        </a>
       </small>
       <small>
-        <a href="https://github.com/mass2527">Github</a>
+        <a
+          href="https://github.com/mass2527"
+          target="_blank"
+          rel="noopener noreferrer">
+          Github
+        </a>
       </small>
     </Footer>
   );
