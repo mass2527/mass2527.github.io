@@ -59,8 +59,13 @@ const GlobalStyles = createGlobalStyle`
     small{
         font-size: ${({theme}) => theme.fontSizes.small};
     }
-    b{
+    b,strong{
         font-weight: ${({theme}) => theme.fontWeights.bold};
+    }
+    li{
+        ol,ul{
+        margin-left:${({theme}) => theme.spaces.large};
+        }
     }
 
     /* syntax highlighting  */

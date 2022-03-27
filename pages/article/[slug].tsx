@@ -78,7 +78,8 @@ const Article = styled.article`
     margin: ${({theme}) => theme.spaces.medium} 0;
     font-size: ${({theme}) => theme.fontSizes.medium};
     color: ${({theme}) => theme.colors.secondary};
-
+  }
+  *:not(pre) {
     code {
       background-color: ${({theme}) => theme.colors['code-background']};
       border-radius: ${({theme}) => theme.radiuses.small};
@@ -92,6 +93,21 @@ const Article = styled.article`
     padding: ${({theme}) => theme.spaces['x-large']};
     margin-bottom: ${({theme}) => theme.spaces['x-large']};
     background-color: ${({theme}) => theme.colors.card};
+  }
+  ul {
+    list-style: inside;
+  }
+  ol {
+    list-style: decimal;
+    list-style-position: inside;
+  }
+  ul,
+  ol {
+    margin-bottom: ${({theme}) => theme.spaces.medium};
+  }
+  img {
+    width: 100%;
+    border-radius: ${({theme}) => theme.radiuses.medium};
   }
 `;
 
