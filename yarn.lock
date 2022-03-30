@@ -2940,6 +2940,7 @@ __metadata:
     react: 17.0.2
     react-dom: 17.0.2
     react-icons: ^4.3.1
+    react-is: ^18.0.0
     recoil: ^0.6.1
     styled-components: ^5.3.3
     styled-media-query: ^2.1.2
@@ -3255,6 +3256,13 @@ __metadata:
   version: 16.13.1
   resolution: "react-is@npm:16.13.1"
   checksum: f7a19ac3496de32ca9ae12aa030f00f14a3d45374f1ceca0af707c831b2a6098ef0d6bdae51bd437b0a306d7f01d4677fcc8de7c0d331eb47ad0f46130e53c5f
+  languageName: node
+  linkType: hard
+
+"react-is@npm:^18.0.0":
+  version: 18.0.0
+  resolution: "react-is@npm:18.0.0"
+  checksum: d38f6afee4d8d791cdd69c715841c01a503c9b06da6158e0893447cea6ba50cd262dca9bde84127720cf44fd05c58185eafc32accace4bb2deb03b3cdbeb6b6b
   languageName: node
   linkType: hard
 
