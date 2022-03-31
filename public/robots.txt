@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://nextjs-blog-gray.vercel.app/sitemap.xml
