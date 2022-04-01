@@ -552,7 +552,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:17.0.43, @types/react@npm:>=16":
+"@types/react@npm:*, @types/react@npm:>=16, @types/react@npm:^17.0.43":
   version: 17.0.43
   resolution: "@types/react@npm:17.0.43"
   dependencies:
@@ -2936,7 +2936,7 @@ __metadata:
   dependencies:
     "@types/node": 17.0.23
     "@types/prismjs": ^1.26.0
-    "@types/react": 17.0.43
+    "@types/react": ^17.0.43
     "@types/react-dom": ^17.0.14
     "@types/styled-components": ^5.1.24
     dayjs: ^1.11.0
@@ -2953,7 +2953,7 @@ __metadata:
     react-dom: 18.0.0
     react-icons: ^4.3.1
     react-is: ^18.0.0
-    recoil: ^0.6.1
+    recoil: ^0.7.0
     styled-components: ^5.3.5
     styled-media-query: ^2.1.2
     styled-reset: ^4.3.4
@@ -3286,9 +3286,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"recoil@npm:^0.6.1":
-  version: 0.6.1
-  resolution: "recoil@npm:0.6.1"
+"recoil@npm:^0.7.0":
+  version: 0.7.0
+  resolution: "recoil@npm:0.7.0"
   dependencies:
     hamt_plus: 1.0.2
   peerDependencies:
@@ -3298,7 +3298,7 @@ __metadata:
       optional: true
     react-native:
       optional: true
-  checksum: 823c098e30f9b711f6e5d73ae3bf3c6d43ae6342998825f00ee18b01c88f499f7216fd59b472bd5ad349c6475e698e2937ad73b82499e31535bd63e431244146
+  checksum: e190db5153e322ba8ca824e97701e756c41681080da23f3e87d104544da2e8c9eea44ada8a36857ef9a1ade368dfe6ea3af7d51796441b08c40272c0a1386c81
   languageName: node
   linkType: hard
 
