@@ -1,4 +1,4 @@
-import {useHasMounted, useRect} from 'hooks';
+import {useMounted, useRect} from 'hooks';
 import styled from 'styled-components';
 
 import ReactDOM from 'react-dom';
@@ -109,9 +109,9 @@ const List = ({children}: {children: ReactNode}) => {
   const {isOpen, menuListRef, menuButtonRef} = useMenuContext();
   const menuListRect = useRect(menuListRef, {observe: isOpen});
   const menuButtonRect = useRect(menuButtonRef, {observe: isOpen});
-  const hasMounted = useHasMounted();
+  const mounted = useMounted();
 
-  if (!isOpen || !hasMounted) {
+  if (!isOpen || !mounted) {
     return null;
   }
 
