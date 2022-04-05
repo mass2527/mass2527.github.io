@@ -11,7 +11,12 @@ const GlobalStyles = createGlobalStyle`
         font-family: -apple-system,BlinkMacSystemFont,Bazier Square,Noto Sans KR,Segoe UI,Apple SD Gothic Neo,Roboto,Helvetica Neue,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
         color:${({theme}) => theme.colors.primary};
         line-height:${({theme}) => theme.lineHeights.medium};
-        background-color:${({theme}) => theme.colors.wash};
+        background-color:${({theme}) => theme.colors.background};
+        padding: 0 ${({theme}) => theme.spaces['x-large']};
+
+        ${media.lessThan('small')`
+        padding: 0 ${({theme}) => theme.spaces.medium};
+        `}
     }
     main{
         min-height:calc(100vh - 160px);
@@ -82,7 +87,10 @@ const GlobalStyles = createGlobalStyle`
         background-size: 44px 10px;
         background-position: 16px 14px;
 
-        ${media.lessThan('tablet')`
+        ${media.lessThan('medium')`
+            width: calc(100vw - 64px);
+        `}
+        ${media.lessThan('small')`
             width: calc(100vw - 32px);
         `}
     }

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import {CSSProperties, ReactNode} from 'react';
 
 interface FlexProps {
+  as?: React.ElementType;
   className?: string;
   direction?: CSSProperties['flexDirection'];
   spacing?: number;
@@ -11,7 +12,8 @@ interface FlexProps {
   children: ReactNode[];
 }
 
-const FlexComponent = ({
+const Flex = ({
+  as,
   className,
   direction = 'row',
   spacing,
@@ -20,19 +22,19 @@ const FlexComponent = ({
   children,
 }: FlexProps) => {
   return (
-    <Flex
+    <Wrapper
+      as={as}
       className={className}
       spacing={spacing}
       direction={direction}
       justifyContent={justifyContent}
-      alignItems={alignItems}
-    >
+      alignItems={alignItems}>
       {children}
-    </Flex>
+    </Wrapper>
   );
 };
 
-const Flex = styled.div<FlexProps>`
+const Wrapper = styled.div<FlexProps>`
   display: flex;
   flex-direction: ${({direction}) => direction};
   gap: ${({spacing}) => spacing && `${spacing * 5}px`};
@@ -40,4 +42,4 @@ const Flex = styled.div<FlexProps>`
   align-items: ${({alignItems}) => alignItems};
 `;
 
-export default FlexComponent;
+export default Flex;

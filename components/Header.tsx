@@ -1,5 +1,4 @@
-import {FaMoon} from 'react-icons/fa';
-import {IoMdSunny} from 'react-icons/io';
+import {HiOutlineSun, HiOutlineMoon} from 'react-icons/hi';
 import {useRecoilState} from 'recoil';
 import styled from 'styled-components';
 
@@ -21,12 +20,12 @@ const HeaderComponent = () => {
   return (
     <Header>
       <div>
-        <Grid>
+        <Nav>
           <div>
             <Link href="/" passHref>
               <StyledLink>
                 <span>
-                  <b>KIM:DONGHO</b> tech blog
+                  <b>KIM:DONGHO</b>
                 </span>
               </StyledLink>
             </Link>
@@ -34,11 +33,15 @@ const HeaderComponent = () => {
           <div />
 
           <div>
-            <button onClick={handleSwitchThemeClick}>
-              {isDarkMode ? <FaMoon /> : <IoMdSunny />}
-            </button>
+            <StyledButton
+              onClick={handleSwitchThemeClick}
+              aria-label={
+                theme === 'dark' ? '라이트 모드로 변경' : '다크 모드로 변경'
+              }>
+              {isDarkMode ? <HiOutlineSun /> : <HiOutlineMoon />}
+            </StyledButton>
           </div>
-        </Grid>
+        </Nav>
       </div>
     </Header>
   );
@@ -46,24 +49,20 @@ const HeaderComponent = () => {
 
 const Header = styled.header`
   height: ${({theme}) => theme.heights.header};
-  border-bottom: 1px solid ${({theme}) => theme.colors['gray-10']};
 
   > div {
     width: 100%;
     height: 100%;
-    padding: 0 ${({theme}) => theme.spaces['2x-large']};
     margin: 0 auto;
-
-    ${media.lessThan('tablet')`
-    padding: 0 ${({theme}) => theme.spaces.medium};
-    `}
   }
 `;
 
-const Grid = styled.div`
+const Nav = styled.nav`
   display: flex;
   align-items: center;
+  max-width: 672px;
   height: 100%;
+  margin: 0 auto;
 
   > div {
     flex: 1;
@@ -75,6 +74,7 @@ const Grid = styled.div`
     &:last-child {
       display: flex;
       justify-content: flex-end;
+      align-items: center;
     }
 
     svg {
@@ -86,9 +86,19 @@ const Grid = styled.div`
 `;
 
 const StyledLink = styled.a`
-  color: ${({theme}) => theme.colors.primary};
   font-size: ${({theme}) => theme.fontSizes.large};
   word-break: inherit;
+  color: ${({theme}) => theme.colors.primary};
+`;
+
+const StyledButton = styled.button`
+  width: 36px;
+  height: 36px;
+  border-radius: ${({theme}) => theme.radiuses.medium};
+  background-color: ${({theme}) =>
+    theme.isDarkMode ? theme.colors.gray[600] : theme.colors.gray[200]};
+  color: ${({theme}) =>
+    theme.isDarkMode ? theme.colors.gray[200] : theme.colors.gray[600]};
 `;
 
 export default HeaderComponent;

@@ -1,9 +1,9 @@
-import { css, CSSProperties } from 'styled-components';
+import {css, CSSProperties} from 'styled-components';
 
 export const flex = (
   flexDirection?: CSSProperties['flexDirection'],
-  justifyContent?: CSSProperties['justifyContent'],
-  alignItems?: CSSProperties['alignItems']
+  justifyContent: CSSProperties['justifyContent'] = 'normal',
+  alignItems: CSSProperties['alignItems'] = 'normal'
 ) => {
   return css`
     display: flex;

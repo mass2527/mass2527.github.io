@@ -1,4 +1,4 @@
-import {useHasMounted, useRect} from 'hooks';
+import {useMounted, useRect} from 'hooks';
 import styled from 'styled-components';
 
 import ReactDOM from 'react-dom';
@@ -109,9 +109,9 @@ const List = ({children}: {children: ReactNode}) => {
   const {isOpen, menuListRef, menuButtonRef} = useMenuContext();
   const menuListRect = useRect(menuListRef, {observe: isOpen});
   const menuButtonRect = useRect(menuButtonRef, {observe: isOpen});
-  const hasMounted = useHasMounted();
+  const mounted = useMounted();
 
-  if (!isOpen || !hasMounted) {
+  if (!isOpen || !mounted) {
     return null;
   }
 
@@ -149,17 +149,13 @@ const MenuList = styled.div`
   box-shadow: 0 4px 14px 0 rgb(0 0 0 / 10%);
 `;
 
-const MenuButton = styled.button`
-  color: ${({theme}) => theme.colors.primary};
-`;
+const MenuButton = styled.button``;
 
 const MenuItem = styled.div`
-  color: ${({theme}) => theme.colors['gray-90']};
   cursor: pointer;
   padding: ${({theme}) => theme.spaces.small};
 
   &:hover {
-    color: ${({theme}) => theme.colors['purple-40']};
   }
 `;
 

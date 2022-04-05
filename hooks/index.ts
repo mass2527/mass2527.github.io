@@ -1,2 +1,3 @@
 export {useRect} from './useRect';
-export {useHasMounted} from './useHasMounted';
+export {useMounted} from './useMounted';
+export {useMediaQuery} from './useMediaQuery';

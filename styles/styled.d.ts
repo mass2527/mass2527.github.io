@@ -3,5 +3,7 @@ import {theme} from 'styles';
 type Theme = typeof theme;
 
 declare module 'styled-components' {
-  interface DefaultTheme extends Theme {}
+  interface DefaultTheme extends Theme {
+    isDarkMode: boolean;
+  }
 }
