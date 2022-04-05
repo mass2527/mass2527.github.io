@@ -149,17 +149,13 @@ const MenuList = styled.div`
   box-shadow: 0 4px 14px 0 rgb(0 0 0 / 10%);
 `;
 
-const MenuButton = styled.button`
-  color: ${({theme}) => theme.colors.primary};
-`;
+const MenuButton = styled.button``;
 
 const MenuItem = styled.div`
-  color: ${({theme}) => theme.colors['gray-90']};
   cursor: pointer;
   padding: ${({theme}) => theme.spaces.small};
 
   &:hover {
-    color: ${({theme}) => theme.colors['purple-40']};
   }
 `;
 

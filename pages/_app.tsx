@@ -5,7 +5,7 @@ import type {AppProps} from 'next/app';
 
 import {themeState} from 'states/theme';
 
-import {darkTheme,lightTheme} from 'styles';
+import {darkTheme, lightTheme} from 'styles';
 import GlobalStyles from 'styles/globalStyles';
 import Layout from 'components/Layout';
 
@@ -14,7 +14,7 @@ function MyApp({Component, pageProps}: AppProps) {
   const selectedTheme = theme === 'light' ? lightTheme : darkTheme;
 
   return (
-    <ThemeProvider theme={selectedTheme}>
+    <ThemeProvider theme={{...selectedTheme, isDarkMode: theme === 'dark'}}>
       <GlobalStyles />
       <Layout>
         <Component {...pageProps} />

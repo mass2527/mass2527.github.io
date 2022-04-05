@@ -1,35 +1,45 @@
 import styled from 'styled-components';
 
 import {flexRow} from 'styles/flex';
+import {media} from 'styles/media';
 
 const FooterComponent = () => {
   return (
     <Footer>
-      <small>
-        <a
-          href="https://www.linkedin.com/in/dh-kim-733227200"
-          target="_blank"
-          rel="noopener noreferrer">
-          Linkedin
-        </a>
-      </small>
-      <small>
-        <a
-          href="https://github.com/mass2527"
-          target="_blank"
-          rel="noopener noreferrer">
-          Github
-        </a>
-      </small>
+      <div>
+        <small>
+          <a
+            href="https://www.linkedin.com/in/dh-kim-733227200"
+            target="_blank"
+            rel="noopener noreferrer">
+            Linkedin
+          </a>
+        </small>
+        <small>
+          <a
+            href="https://github.com/mass2527"
+            target="_blank"
+            rel="noopener noreferrer">
+            Github
+          </a>
+        </small>
+      </div>
     </Footer>
   );
 };
 
 const Footer = styled.footer`
-  ${flexRow('space-between', 'center')};
   height: ${({theme}) => theme.heights.footer};
-  border-top: 1px solid ${({theme}) => theme.colors['gray-10']};
-  padding: 0 ${({theme}) => theme.spaces['x-large']};
+
+  div {
+    ${flexRow('space-between', 'center')};
+    max-width: 672px;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+
+    border-top: 1px solid ${({theme}) => theme.colors.border};
+  }
 `;
 
 export default FooterComponent;
